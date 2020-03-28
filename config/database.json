@@ -1,0 +1,6 @@
+{
+"db_name": "Chat DB",
+"user": "postgres",
+"password":"1111",
+"host":"localhost:5433"
+}
