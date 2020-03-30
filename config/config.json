@@ -1,3 +1,9 @@
 {
-  "port":3001
+  "port":3001,
+  "database": {
+    "name": "Chat DB",
+    "user": "postgres",
+    "password": "1111",
+    "host": "localhost:5433"
+  }
 }

@@ -5,12 +5,12 @@ module.exports.genToken = () => {
 
 module.exports.getTime = () => {
   let currentDate = new Date();
-  let date = ("'" + currentDate.getFullYear()+ "-"+ currentDate.getMonth()+"-"+ currentDate.getDate()+"'");
+  let date = (`'${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDay()}'`);
   let min = currentDate.getUTCMinutes() ;
   if(currentDate.getMinutes()<10){
       min = '0' + min;
   }
-  let time = ("'" + currentDate.getHours() + ':' + min +"'" );
+  let time = ( `'${currentDate.getHours()} :${min}'` );
   return {
     "date":date,
     "time":time
