@@ -1,15 +1,13 @@
 
-# API Online Chat: Description
+# REST API Online Chat Description
 
-**Table of Contents**
+## Introdution
+The API is used to integrate the capabilities of online chat into a client’s personal project. The API is intended for developers and is accompanied by detailed documentation.
 
-- [ How it use?](#1)  
-- [How include in project? ](#2)  
-- [Functions](#3)  
-- [Params ](#4)  
-  
-<a  name="1"></a>  
-## How it use?
+## Description
+REST API Chat runs over HTTP and is a set of methods by which requests are made and responses are returned for each operation. All answers come in the form of JSON structures.
+
+## How to use?
 
 - download project
 - create postgres db with use `query_db.txt `
