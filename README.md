@@ -7,20 +7,6 @@ The API is used to integrate the capabilities of online chat into a client’s p
 ## Description
 REST API Chat runs over HTTP and is a set of methods by which requests are made and responses are returned for each operation. All answers come in the form of JSON structures.
 
-## How to use?
-
-- download project
-- create postgres db with use `query_db.txt `
-- use `npm install `
-- edit config files in `/config `
-- use `npm start `
-
-<a  name="2"></a>  
-## How include in project?
-```Javascript
-let query = require('./module/database/query.js');
-```
-
 # Functions
 
 ## Registration
