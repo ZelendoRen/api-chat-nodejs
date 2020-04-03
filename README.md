@@ -21,24 +21,59 @@ REST API Chat runs over HTTP and is a set of methods by which requests are made 
 let query = require('./module/database/query.js');
 ```
 
-## Functions
+# Functions
 
-|Route |Function  | Params|What is it do?|  Return(if succes)|
-|------------- | -------------|-------------|-------------|-------------|
-|/registration|`registration`|name | Register new use in chat and create token| token|
-|/send|`sendMessage`  | token, message| Send message in chat room|true|
-|/dialog|`getMessages` | token, (limit)| Return (limit) message in chat, or all messages in chat if limit not define|  list of messages|
-|/edit|`updateMessage`| id, token, , message| Edit message by Id| true|
+## Registration
+Registration (`registration`) procces can start only, when user enter his nicknamev  (`name`) and this is unic in this database. Return, as result, `token` to user. This token uses to do actions in chat.
 
-
-## Params
 | Params | Description |
 | ------------- | ------------- |
-| name  | User name, login, in chat  |
-| token  |  Identificator of user, generated as result of reistration |
-| message |   Message, that user send on chat |
-| id  |  Identificator of message in chat |
+| string name  | User name, display in chat  |
+| int  token  |  Identificator of user, generated as result of reistration |
 
+##  SendMesasge 
+To use this function (`sendMessage`) need define `token` and `message` paarams. `message` contains user message, that sending in chat, `token` indenify user, that send this mesaage. As result returns bool `true`, if succes.
+
+| Params | Description |
+| ------------- | ------------- |
+|int token  |  Identificator of user, generated as result of reistration |
+|string message |   Message, that user send on chat |
+
+## UpadeMessage
+This function `updateMessage` get permisson to change already send message, if entered pare of `id` and `token` exist in databes. Param `message` contain new meassge. `id` is unic variable for every message. Return bool `true`, if succes.
+| Params | Description |
+| ------------- | ------------- |
+| int token  |  Identificator of user, generated as result of reistration |
+| string message |   Message, that user send on chat |
+| int id  |  Identificator of message in chat |
+
+## GetMessages
+This fucntion `getMessages`  return list of all (or `limit`, if define) message. To get permission for this action necessary to define `token`. 
+
+
+| Params | Description |
+| ------------- | ------------- |
+| int limit (variative) | limit of dipalayed message  |
+| int token  |  Identificator of user, generated as result of reistration |
+
+# Routes
+|Route |Function  | Params|
+|------------- | -------------|-------------|
+|/registration|`registration`|name |
+|/send| `sendMessage`| token, message|
+|/dialog|`getMessages` | token, (limit)| messages|
+|/edit|`updateMessage`| id, token, message| 
+
+
+# Errors
+
+
+|id |Description |
+|------------- | -------------|
+|01|  This name already used|
+|02|  Bad token|
+|03|  You don`t have permissoin to this action|
+|04|  Message with this id don`t exist. Check message id and try again|
 
 
 
